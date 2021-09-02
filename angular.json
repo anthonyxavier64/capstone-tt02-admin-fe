@@ -77,7 +77,8 @@
             },
             "development": {
               "browserTarget": "Capstone-tt02-admin-fe:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "proxyConfig": "proxy.conf.json",
+              "port": 4000
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Capstone-tt02-admin-fe:build"
+            "browserTarget": "Capstone-tt02-admin-fe:build",
           }
         },
         "test": {
