@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IndexComponent } from './pages/index/index.component';
-import { PrimeNgModule } from './core/primeng.module';
 import { MaterialModule } from './core/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { PrimeNgModule } from './core/primeng.module';
+import { IndexComponent } from './pages/index/index.component';
 
 @NgModule({
   declarations: [
