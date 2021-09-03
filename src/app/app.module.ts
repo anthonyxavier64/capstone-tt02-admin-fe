@@ -13,6 +13,9 @@ import { IndexComponent } from './pages/index/index.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { TOKEN_KEY } from './config';
 import { HomeComponent } from './pages/home/home.component';
+import { NewCompanyComponent } from './pages/new-company/new-company.component';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { PaymentsComponent } from './pages/payments/payments.component';
 
 export function tokenGetter() {
   return localStorage.getItem(TOKEN_KEY);
@@ -21,7 +24,10 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     IndexComponent,
-    HomeComponent
+    HomeComponent,
+    NewCompanyComponent,
+    CompaniesComponent,
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,

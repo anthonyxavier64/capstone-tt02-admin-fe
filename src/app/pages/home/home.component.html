@@ -1,1 +1,36 @@
-<p>home works!</p>
+<div fxLayout="row" style="height: 100%; width: 100%">
+  <div
+    fxLayout="column"
+    fxShow
+    fxLayoutGap="10%"
+    fxHide.lt-md
+    #leftBanner
+    style="
+      height: 100%;
+      width: 15%;
+      float: left;
+      background-color: #c1e7e3;
+      padding: 1% 1% 1% 1%;
+    "
+  >
+    <button>LOGO</button>
+    <div fxLayout="column" fxShow fxLayoutGap="5%">
+      <button (click)="handleNewCompany()">New Company</button>
+      <button (click)="handleCompanies()">Companies</button>
+      <button (click)="handlePayments()">Payments</button>
+    </div>
+  </div>
+
+  <div *ngIf="currentTab === 'newCompanyTab'">
+    <!-- new company component -->
+    <app-new-company></app-new-company>
+  </div>
+
+  <div *ngIf="currentTab === 'companiesTab'">
+    <app-companies></app-companies>
+  </div>
+
+  <div *ngIf="currentTab === 'paymentsTab'">
+    <app-payments></app-payments>
+  </div>
+</div>
