@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  currentTab: string
 
-  constructor() { }
+  constructor() {
+    this.currentTab = '';
+  }
 
   ngOnInit(): void {
   }
 
+  handleNewCompany() {
+    this.currentTab = 'newCompanyTab';
+  }
+
+  handleCompanies() {
+    this.currentTab = 'companiesTab';
+  }
+
+  handlePayments() {
+    this.currentTab = 'paymentsTab';
+  }
 }
