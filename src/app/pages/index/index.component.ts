@@ -1,28 +1,45 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  styleUrls: ['./index.component.css'],
 })
 export class IndexComponent implements OnInit, AfterViewInit {
   email: string;
   password: string;
 
-  constructor(private cdRef: ChangeDetectorRef, private router: Router) {
+  constructor(
+    private cdRef: ChangeDetectorRef,
+    private router: Router,
+    private auth: AuthService
+  ) {
     this.email = '';
     this.password = '';
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.cdRef.detectChanges();
   }
 
   handleLogin() {
-    
+    this.auth.login(this.email, this.password).then(
+      (response) => {
+        localStorage.setItem('currentUser', JSON.stringify(response));
+        this.router.navigateByUrl('/home');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
