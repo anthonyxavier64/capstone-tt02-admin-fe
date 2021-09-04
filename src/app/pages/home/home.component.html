@@ -6,7 +6,6 @@
     fxHide.lt-md
     #leftBanner
     style="
-      height: 100%;
       width: 15%;
       float: left;
       background-color: #c1e7e3;
@@ -21,16 +20,18 @@
     </div>
   </div>
 
-  <div *ngIf="currentTab === 'newCompanyTab'">
-    <!-- new company component -->
-    <app-new-company></app-new-company>
-  </div>
+  <div style="width: 85%;">
+    <div *ngIf="currentTab === 'newCompanyTab'">
+      <!-- new company component -->
+      <app-new-company></app-new-company>
+    </div>
 
-  <div *ngIf="currentTab === 'companiesTab'">
-    <app-companies></app-companies>
-  </div>
+    <div *ngIf="currentTab === 'companiesTab'">
+      <app-companies></app-companies>
+    </div>
 
-  <div *ngIf="currentTab === 'paymentsTab'">
-    <app-payments></app-payments>
+    <div *ngIf="currentTab === 'paymentsTab'">
+      <app-payments></app-payments>
+    </div>
   </div>
 </div>
