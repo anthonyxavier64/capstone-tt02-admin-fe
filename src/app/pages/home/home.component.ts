@@ -3,20 +3,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  currentTab: string
+  currentTab: string;
 
   constructor() {
     this.currentTab = '';
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleNewCompany() {
-    this.currentTab = 'newCompanyTab';
+    this.currentTab = 'requestTab';
   }
 
   handleCompanies() {
@@ -25,5 +24,9 @@ export class HomeComponent implements OnInit {
 
   handlePayments() {
     this.currentTab = 'paymentsTab';
+  }
+
+  handleMain() {
+    this.currentTab = 'mainTab';
   }
 }

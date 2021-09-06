@@ -1,0 +1,12 @@
+<div>
+  <p-virtualScroller [value]="requests" scrollHeight="600px">
+    <ng-template pTemplate="item" let-request>
+      <mat-card (click)="handleClickRequest(request)">
+        <mat-card-title>
+          {{ request.companyName }}
+        </mat-card-title>
+        <mat-card-subtitle> Date requested: dd-mm-yyyy </mat-card-subtitle>
+      </mat-card>
+    </ng-template>
+  </p-virtualScroller>
+</div>

@@ -2,28 +2,27 @@
   <div
     fxLayout="column"
     fxShow
-    fxLayoutGap="10%"
     fxHide.lt-md
+    fxLayoutGap="10%"
     #leftBanner
-    style="
-      width: 15%;
-      float: left;
-      background-color: #c1e7e3;
-      padding: 1% 1% 1% 1%;
-    "
+    class="side-navbar"
   >
-    <button>LOGO</button>
-    <div fxLayout="column" fxShow fxLayoutGap="5%">
-      <button (click)="handleNewCompany()">New Company</button>
+    <button (click)="handleMain()">LOGO</button>
+    <div fxLayout="column" fxLayoutGap="5%">
+      <button (click)="handleNewCompany()">Requests</button>
       <button (click)="handleCompanies()">Companies</button>
       <button (click)="handlePayments()">Payments</button>
     </div>
   </div>
 
-  <div style="width: 85%;">
-    <div *ngIf="currentTab === 'newCompanyTab'">
+  <div style="width: 100%">
+    <div *ngIf="currentTab === 'mainTab'">
+      <app-main></app-main>
+    </div>
+
+    <div *ngIf="currentTab === 'requestTab'">
       <!-- new company component -->
-      <app-new-company></app-new-company>
+      <app-company-request></app-company-request>
     </div>
 
     <div *ngIf="currentTab === 'companiesTab'">

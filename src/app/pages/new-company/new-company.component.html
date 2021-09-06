@@ -1,1 +1,29 @@
-<p>new-company works!</p>
+<div>
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>{{ companyName }}</mat-card-title>
+      <img
+        mat-card-sm-image
+        src="http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/63a31a9548cbbf0.png"
+      />
+    </mat-card-title-group>
+    <mat-card-content fxLayout="column" fxLayoutGap="3%">
+      <div>
+        <div class="company-detail-header">Email:</div>
+        email@address.com
+      </div>
+      <div>
+        <div class="company-detail-header">Address:</div>
+        address
+      </div>
+      <div>
+        <div class="company-detail-header">Number of offices:</div>
+        xx
+      </div>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutGap="2%">
+      <button>Accept</button>
+      <button>Reject</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
