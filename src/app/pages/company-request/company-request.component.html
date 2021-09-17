@@ -1,12 +1,29 @@
 <div>
-  <p-virtualScroller [value]="requests" scrollHeight="600px">
-    <ng-template pTemplate="item" let-request>
-      <mat-card (click)="handleClickRequest(request)">
-        <mat-card-title>
-          {{ request.companyName }}
-        </mat-card-title>
-        <mat-card-subtitle> Date requested: dd-mm-yyyy </mat-card-subtitle>
-      </mat-card>
-    </ng-template>
-  </p-virtualScroller>
+  <div>
+    <p-dataView
+      [value]="requests"
+      layout="list"
+      [loading]="isLoading"
+      [paginator]="true"
+      [rows]="10"
+      [sortField]="sortField"
+    >
+      <ng-template pTemplate="header"></ng-template>
+      <ng-template let-request pTemplate="listItem">
+        <div style="width: 100%">
+          <mat-card (click)="handleClickRequest(request)">
+            <mat-card-title>
+              {{ request.companyName }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              Date created: {{ request.createdAt }}
+            </mat-card-subtitle>
+            <mat-card-content>
+              Status: {{ request.companyCreationStatus }}
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </ng-template>
+    </p-dataView>
+  </div>
 </div>

@@ -1,0 +1,14 @@
+.headerText {
+  font-size: 2vw;
+  font-family: "Source Sans Pro";
+  color: rgba(0, 55, 100, 0.8);
+}
+
+.backButton {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 1.2vw;
+  font-family: "Source Sans Pro";
+  color: rgba(0, 55, 100, 0.8);
+  height: 3vw;
+  width: 8vw;
+}

@@ -4,7 +4,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
-import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DataViewModule } from 'primeng/dataview';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   exports: [
@@ -12,7 +13,8 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     ButtonModule,
     CardModule,
     VirtualScrollerModule,
-    DynamicDialogModule,
+    DataViewModule,
+    ToastModule,
   ],
 })
 export class PrimeNgModule {}
