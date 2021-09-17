@@ -16,6 +16,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NewCompanyComponent } from './pages/new-company/new-company.component';
 import { CompaniesComponent } from './pages/companies/companies.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
+import { MainComponent } from './pages/main/main.component';
+import { CompanyRequestComponent } from './pages/company-request/company-request.component';
 
 export function tokenGetter() {
   return localStorage.getItem(TOKEN_KEY);
@@ -27,7 +29,9 @@ export function tokenGetter() {
     HomeComponent,
     NewCompanyComponent,
     CompaniesComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    MainComponent,
+    CompanyRequestComponent
   ],
   imports: [
     BrowserModule,

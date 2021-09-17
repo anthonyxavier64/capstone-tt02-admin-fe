@@ -1,1 +1,47 @@
-<p>new-company works!</p>
+<div>
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>{{ request.companyName }}</mat-card-title>
+      <mat-card-subtitle>{{ request.companyCreationStatus }}</mat-card-subtitle>
+      <img
+        mat-card-sm-image
+        src="http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/63a31a9548cbbf0.png"
+      />
+    </mat-card-title-group>
+    <mat-card-content fxLayout="column" fxLayoutGap="3%">
+      <div>
+        <div class="company-detail-header">Email:</div>
+        {{ request.companyEmail }}
+      </div>
+      <div>
+        <div class="company-detail-header">Contact:</div>
+        {{ request.companyContactNumber }}
+      </div>
+      <div>
+        <div class="company-detail-header">HR Full Name:</div>
+        {{ request.hrAdminFullName }}
+      </div>
+      <div>
+        <div class="company-detail-header">HR Email:</div>
+        {{ request.hrAdminEmail }}
+      </div>
+      <div>
+        <div class="company-detail-header">Address:</div>
+        {{ request.companyOfficeAddress }}
+      </div>
+      <div>
+        <div class="company-detail-header">Operating Hours:</div>
+        {{ request.companyOfficeOpeningHour }} -
+        {{ request.companyOfficeClosingHour }}
+      </div>
+    </mat-card-content>
+    <mat-card-actions
+      *ngIf="request.companyCreationStatus === companyCreationStatusEnum[0]"
+      fxLayout="row"
+      fxLayoutGap="3%"
+    >
+      <button (click)="handleAcceptRequest()">Accept</button>
+      <button (click)="handleRejectRequest()">Reject</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
