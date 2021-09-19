@@ -1,0 +1,102 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <h2 style="width: 100%; text-align: center">Company {{ company.name }}</h2>
+
+  <table class="infoTable">
+    <tr>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Company ID</label>
+          <p>{{ company.companyId }}</p>
+        </div>
+      </td>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Company Name</label>
+          <p>{{ company.name }}</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Email</label>
+          <p>{{ company.email }}</p>
+        </div>
+      </td>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Contact Number</label>
+          <p>{{ company.contactNumber }}</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Opening Hour</label>
+          <p>{{ company.officeOpeningHour }}</p>
+        </div>
+      </td>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Closing Hour</label>
+          <p>{{ company.officeClosingHour }}</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Office Capacity</label>
+          <p>{{ company.officeCapacity }}</p>
+        </div>
+      </td>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Company Size</label>
+          <p>{{ company.companySize }}</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Subscription Type</label>
+          <p>{{ company.subscriptionType }}</p>
+        </div>
+      </td>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">WFO Arrangement</label>
+          <p>{{ company.wfoArrangement }}</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Number of Employees</label>
+          <p>{{ company.numOfEmployees }}</p>
+        </div>
+      </td>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Office Name</label>
+          <p>{{ company.officeName }}</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div fxLayout="column">
+          <label class="heading">Created At</label>
+          <p>{{ company.createdAt }}</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="4%">
+    <button mat-button (click)="onDelete()" class="btn" >Delete</button>
+    <button mat-button (click)="onClose()" class="btn">Close</button>
+  </div>
+</div>
