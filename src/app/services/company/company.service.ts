@@ -52,4 +52,20 @@ export class CompanyService {
       )
       .pipe(catchError(handleError));
   }
+
+  deleteCompany(companyId: string): Observable<any> {
+    return this.httpClient
+      .post<any>(
+        this.baseUrl + '/company/delete-company',
+        { companyId },
+        httpOptions
+      )
+      .pipe(catchError(handleError));
+  }
+
+  getAllCompanies(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + '/company/get-all-companies')
+      .pipe(catchError(handleError));
+  }
 }
