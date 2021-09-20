@@ -33,14 +33,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   handleLogin() {
-    this.auth.login(this.email, this.password).then(
-      (response) => {
+    this.auth.login(this.email, this.password).then((response) => {
+      if (response) {
         localStorage.setItem('currentUser', JSON.stringify(response));
         this.router.navigateByUrl('/home');
-      },
-      (error) => {
-        console.log(error);
       }
-    );
+    });
   }
 }

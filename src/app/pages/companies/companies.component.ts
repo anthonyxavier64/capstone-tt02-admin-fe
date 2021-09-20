@@ -1,22 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { CompanyService } from 'src/app/services/company/company.service';
 import { ViewCompanyDialogComponent } from '../view-company-dialog/view-company-dialog.component';
-
-interface company {
-  companyId: number;
-  name: string;
-  email: string;
-  contactNumber: string;
-  officeOpeningHour: string;
-  officeClosingHour: string;
-  officeCapacity: number;
-  companySize: string;
-  subscriptionType: string;
-  wfoArrangement: string;
-  numOfEmployees: number;
-  officeName: string;
-  createdAt: string;
-}
 
 @Component({
   selector: 'app-companies',
@@ -27,62 +12,26 @@ interface company {
 export class CompaniesComponent implements OnInit {
   allCompanies: any;
   isCompanyDetailsOpen: boolean;
-  selectedCompany: company;
+  selectedCompany: any;
   ref: DynamicDialogRef | undefined;
 
-  constructor(private dialogService: DialogService) {
-    this.allCompanies = [
-      {
-        companyId: 12345,
-        name: 'string',
-        email: 'string@string',
-        contactNumber: '1234',
-        officeOpeningHour: '0800',
-        officeClosingHour: '1700',
-        officeCapacity: 50,
-        companySize: 'Small',
-        subscriptionType: 'Pro',
-        wfoArrangement: 'wfo',
-        numOfEmployees: 100,
-        officeName: 'abcded',
-        createdAt: '122021',
+  constructor(
+    private dialogService: DialogService,
+    private companyService: CompanyService
+  ) {}
+
+  ngOnInit(): void {
+    this.companyService.getAllCompanies().subscribe(
+      (response) => {
+        this.allCompanies = response.companies;
       },
-      {
-        companyId: 12346,
-        name: 'stringfveve',
-        email: 'stvervring@string',
-        contactNumber: '1234',
-        officeOpeningHour: '0800',
-        officeClosingHour: '1700',
-        officeCapacity: 50,
-        companySize: 'Medium',
-        subscriptionType: 'Pro',
-        wfoArrangement: 'wfo',
-        numOfEmployees: 100,
-        officeName: 'fwevwe',
-        createdAt: '132012',
-      },
-      {
-        companyId: 123456,
-        name: 'string',
-        email: 'vfdverstring@string',
-        contactNumber: '1234567',
-        officeOpeningHour: '0800',
-        officeClosingHour: '1700',
-        officeCapacity: 50,
-        companySize: 'Large',
-        subscriptionType: 'Pro',
-        wfoArrangement: 'wfo',
-        numOfEmployees: 1200,
-        officeName: 'abcded',
-        createdAt: '213812',
-      },
-    ];
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  ngOnInit(): void {}
-
-  openCompanyDetails(company: company) {
+  openCompanyDetails(company: any) {
     // this.selectedCompany = company;
     // this.isCompanyDetailsOpen = true;
     this.ref = this.dialogService.open(ViewCompanyDialogComponent, {

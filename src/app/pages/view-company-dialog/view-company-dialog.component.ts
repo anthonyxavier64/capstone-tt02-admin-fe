@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { CompanyService } from 'src/app/services/company/company.service';
 
 @Component({
   selector: 'app-view-company-dialog',
@@ -11,7 +12,8 @@ export class ViewCompanyDialogComponent implements OnInit {
 
   constructor(
     private dialogConfig: DynamicDialogConfig,
-    private ref: DynamicDialogRef
+    private ref: DynamicDialogRef,
+    private companyService: CompanyService
   ) {
     this.company = this.dialogConfig.data.company;
   }
@@ -20,6 +22,15 @@ export class ViewCompanyDialogComponent implements OnInit {
 
   onDelete() {
     // BE DELETE LOGIC GOES IN HERE
+    this.companyService.deleteCompany(this.company.companyId).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
     this.ref.close();
   }
 
