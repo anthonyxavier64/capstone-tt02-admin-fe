@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { companyCreationStatusEnum } from '../../config';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-company',
@@ -13,13 +14,14 @@ export class NewCompanyComponent implements OnInit {
   companyCreationStatusEnum = companyCreationStatusEnum;
 
   constructor(
-    private dialogConfig: DynamicDialogConfig,
-    private companyService: CompanyService
-  ) {
-    this.request = this.dialogConfig.data.request;
-  }
+    private companyService: CompanyService,
+    private dialogRef: MatDialogRef<NewCompanyComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.request = this.data.request;
+  }
 
   handleAcceptRequest() {
     this.companyService
@@ -29,10 +31,10 @@ export class NewCompanyComponent implements OnInit {
       )
       .subscribe(
         (result) => {
-          console.log(result);
+          this.dialogRef.close();
         },
         (error) => {
-          console.log(error);
+          this.dialogRef.close();
         }
       );
   }
@@ -44,8 +46,12 @@ export class NewCompanyComponent implements OnInit {
         this.request.companyEmail
       )
       .subscribe(
-        (result) => {},
-        (error) => {}
+        (result) => {
+          this.dialogRef.close();
+        },
+        (error) => {
+          this.dialogRef.close();
+        }
       );
   }
 }

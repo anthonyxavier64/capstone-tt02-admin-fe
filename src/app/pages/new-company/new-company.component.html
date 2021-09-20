@@ -1,7 +1,7 @@
 <div>
   <mat-card>
     <mat-card-title-group>
-      <mat-card-title>{{ request.companyName }}</mat-card-title>
+      <mat-card-title>{{ request.name }}</mat-card-title>
       <mat-card-subtitle>{{ request.companyCreationStatus }}</mat-card-subtitle>
       <img
         mat-card-sm-image
@@ -11,11 +11,11 @@
     <mat-card-content fxLayout="column" fxLayoutGap="3%">
       <div>
         <div class="company-detail-header">Email:</div>
-        {{ request.companyEmail }}
+        {{ request.email }}
       </div>
       <div>
         <div class="company-detail-header">Contact:</div>
-        {{ request.companyContactNumber }}
+        {{ request.contactNumber }}
       </div>
       <div>
         <div class="company-detail-header">HR Full Name:</div>
@@ -26,13 +26,41 @@
         {{ request.hrAdminEmail }}
       </div>
       <div>
-        <div class="company-detail-header">Address:</div>
-        {{ request.companyOfficeAddress }}
+        <div class="company-detail-header">Company Size:</div>
+        {{ request.companySize }}
       </div>
       <div>
         <div class="company-detail-header">Operating Hours:</div>
-        {{ request.companyOfficeOpeningHour }} -
-        {{ request.companyOfficeClosingHour }}
+        {{ request.officeOpeningHour }} -
+        {{ request.officeClosingHour }}
+      </div>
+      <div>
+        <div class="company-detail-header">Office Name:</div>
+        {{ request.officeName }}
+      </div>
+      <div>
+        <div class="company-detail-header">Office Address:</div>
+        {{ request.officeAddress }}
+      </div>
+      <div>
+        <div class="company-detail-header">Office Capacity:</div>
+        {{ request.officeCapacity }}
+      </div>
+      <div>
+        <div class="company-detail-header">Number Of Employees:</div>
+        {{ request.numOfEmployees }}
+      </div>
+      <div>
+        <div class="company-detail-header">Subscription Type:</div>
+        {{ request.subscriptionType }}
+      </div>
+      <div>
+        <div class="company-detail-header">Payment Method:</div>
+        {{ request.paymentMethod }}
+      </div>
+      <div>
+        <div class="company-detail-header">Work From Home Arrangement:</div>
+        {{ request.wfoArrangement }}
       </div>
     </mat-card-content>
     <mat-card-actions
