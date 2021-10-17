@@ -10,9 +10,8 @@ import { ViewCompanyDialogComponent } from '../view-company-dialog/view-company-
   providers: [DialogService],
 })
 export class CompaniesComponent implements OnInit {
-  allCompanies: any;
-  isCompanyDetailsOpen: boolean;
-  selectedCompany: any;
+  allNotDeletedCompanies: any[];
+  allDeletedCompanies: any[];
   ref: DynamicDialogRef | undefined;
 
   constructor(
@@ -23,7 +22,13 @@ export class CompaniesComponent implements OnInit {
   ngOnInit(): void {
     this.companyService.getAllCompanies().subscribe(
       (response) => {
-        this.allCompanies = response.companies;
+        this.allNotDeletedCompanies = response.companies.filter(
+          (company) => !company.isDeleted
+        );
+
+        this.allDeletedCompanies = response.companies.filter(
+          (company) => company.isDeleted
+        );
       },
       (error) => {
         console.log(error);
@@ -32,14 +37,19 @@ export class CompaniesComponent implements OnInit {
   }
 
   openCompanyDetails(company: any) {
-    // this.selectedCompany = company;
-    // this.isCompanyDetailsOpen = true;
     this.ref = this.dialogService.open(ViewCompanyDialogComponent, {
       data: {
         company,
       },
       width: '70%',
       height: '80%',
+    });
+
+    this.ref.onClose.subscribe((response) => {
+      if (response) {
+        this.allNotDeletedCompanies = response.notDeletedCompanies;
+        this.allDeletedCompanies = response.deletedCompanies;
+      }
     });
   }
 }

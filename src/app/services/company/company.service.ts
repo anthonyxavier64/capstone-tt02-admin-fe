@@ -68,4 +68,14 @@ export class CompanyService {
       .get<any>(this.baseUrl + '/company/get-all-companies')
       .pipe(catchError(handleError));
   }
+
+  reactivateCompany(companyId: string): Observable<any> {
+    return this.httpClient
+      .patch<any>(
+        this.baseUrl + '/company/reactivate-company',
+        { companyId },
+        httpOptions
+      )
+      .pipe(catchError(handleError));
+  }
 }

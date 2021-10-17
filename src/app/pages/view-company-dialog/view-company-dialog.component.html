@@ -96,7 +96,22 @@
     </tr>
   </table>
   <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="4%">
-    <button mat-button (click)="onDelete()" class="btn" >Delete</button>
+    <button
+      *ngIf="!company.isDeleted"
+      mat-button
+      (click)="onDelete()"
+      class="btn"
+    >
+      Delete
+    </button>
+    <button
+      *ngIf="company.isDeleted"
+      mat-button
+      (click)="onReactivate()"
+      class="btn"
+    >
+      Re-activate
+    </button>
     <button mat-button (click)="onClose()" class="btn">Close</button>
   </div>
 </div>
