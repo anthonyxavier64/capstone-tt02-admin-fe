@@ -1,8 +1,10 @@
 <p-toast></p-toast>
 <div fxLayout fxShow fxHide.lt-md class="left-section" #leftSection>
   <div *ngIf="leftSection.style.display !== 'none'">
-    <span style="font-size: 40px">LOGO</span>
-    <p></p>
+    <img
+      src="../../../assets/images/flexiworkLogo.png"
+      style="height: 200px; width: 400px"
+    />
   </div>
 </div>
 
@@ -36,7 +38,10 @@
     style="text-align: center; width: 100%"
     *ngIf="tabletMode.style.display !== 'none'"
   >
-    <div style="font-size: 40px">LOGO</div>
+    <img
+      src="../../../assets/images/flexiworkLogo.png"
+      style="height: 150px; width: 350px"
+    />
     <mat-card fxLayout="column" fxLayoutGap="3%">
       <input
         type="text"

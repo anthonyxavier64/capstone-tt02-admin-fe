@@ -24,14 +24,26 @@ export class ViewCompanyDialogComponent implements OnInit {
     // BE DELETE LOGIC GOES IN HERE
     this.companyService.deleteCompany(this.company.companyId).subscribe(
       (response) => {
-        console.log(response);
+        this.ref.close(response);
       },
       (error) => {
         console.log(error);
+        this.ref.close();
       }
     );
+  }
 
-    this.ref.close();
+  onReactivate() {
+    this.companyService.reactivateCompany(this.company.companyId).subscribe(
+      (response) => {
+        console.log(response);
+        this.ref.close(response);
+      },
+      (error) => {
+        console.log(error);
+        this.ref.close();
+      }
+    );
   }
 
   onClose() {

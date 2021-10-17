@@ -5,13 +5,12 @@
 .heading {
   color: rgba(0, 55, 100, 0.8);
   font-weight: bolder;
-  font-size: 1.8vw
+  font-size: 1.8vw;
 }
 
 .btn {
-  width: 50%;
+  width: auto;
   height: 30%;
   background: rgba(255, 166, 135, 0.2);
   border-radius: 7px;
-
 }
