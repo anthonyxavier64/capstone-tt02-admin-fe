@@ -1,1 +1,78 @@
-<div></div>
+<mat-tab-group>
+  <mat-tab label="Successful">
+    <label style="margin-left: 20px">Filter Company: </label>
+    <span
+      class="p-input-icon-right"
+      style="margin-top: 20px; margin-left: 20px; margin-bottom: 20px"
+    >
+      <i class="pi pi-search"></i>
+      <input type="text" placeholder="Search Company" pInputText />
+    </span>
+
+    <label style="margin-left: 20px">Filter Year: </label>
+    <span
+      class="p-input-icon-right"
+      style="margin-top: 20px; margin-left: 20px; margin-bottom: 20px"
+    >
+      <input
+        type="text"
+        style="text-align: center"
+        placeholder="2021"
+        pInputText
+      />
+    </span>
+
+    <label style="margin-left: 20px">Select Month: </label>
+    <p-dropdown
+      [options]="months"
+      [(ngModel)]="selectedMonth"
+      placeholder="Select a Month"
+      style="margin-left: 20px"
+    ></p-dropdown>
+
+    <button mat-button class="peach-btn" style="margin-left: 20px">
+      View Archives
+    </button>
+
+    <hr />
+    <mat-grid-list cols="1" gutterSize="5px">
+      <div *ngFor="let company of paidCompanies">
+        <mat-card>
+          <mat-card-title>
+            {{ company.name }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            Date Paid: {{ company.datePaid }}
+          </mat-card-subtitle>
+          <mat-card-content>
+            Subscription Type: {{ company.subscriptionType }}
+          </mat-card-content>
+          <mat-card-content>
+            Amount Paid: $ {{ company.amountPaid }}
+          </mat-card-content>
+          <mat-card-content>
+            Subscription Type: {{ company.paymentStatus }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-grid-list>
+  </mat-tab>
+
+  <mat-tab label="Failed">
+    <mat-grid-list cols="1" gutterSize="5px">
+      <div *ngFor="let company of unpaidCompanies">
+        <mat-card>
+          <mat-card-title>
+            {{ company.name }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            Date created: {{ company.createdAt }}
+          </mat-card-subtitle>
+          <mat-card-content>
+            Subscription Type: {{ company.subscriptionType }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-grid-list>
+  </mat-tab>
+</mat-tab-group>

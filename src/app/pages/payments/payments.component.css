@@ -1,0 +1,33 @@
+.peach-btn {
+  font-family: "Source Sans Pro";
+  background: rgba(255, 166, 135, 0.25);
+  color: rgb(0, 54, 114);
+  font-size: 16px;
+  font-weight: 500;
+  height: 2.5vw;
+}
+
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button {
+  font-family: "Source Sans Pro", sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 1.5rem;
+  padding: 0 16px;
+  border-radius: 4px;
+  overflow: visible;
+  min-width: 6vw;
+}
