@@ -9,7 +9,7 @@ export class HomeComponent implements OnInit {
   currentTab: string;
 
   constructor() {
-    this.currentTab = '';
+    this.currentTab = 'requestTab';
   }
 
   ngOnInit(): void {}
@@ -24,9 +24,5 @@ export class HomeComponent implements OnInit {
 
   handlePayments() {
     this.currentTab = 'paymentsTab';
-  }
-
-  handleMain() {
-    this.currentTab = 'mainTab';
   }
 }

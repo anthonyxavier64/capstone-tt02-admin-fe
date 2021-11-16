@@ -18,8 +18,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { IndexComponent } from './pages/index/index.component';
 import { MainComponent } from './pages/main/main.component';
 import { NewCompanyComponent } from './pages/new-company/new-company.component';
-import { PaymentsComponent } from './pages/payments/payments.component';
 import { ViewCompanyDialogComponent } from './pages/view-company-dialog/view-company-dialog.component';
+import { TransactionComponent } from './pages/transaction/transaction.component';
+import { TransactionDialogComponent } from './pages/transaction-dialog/transaction-dialog.component';
 
 export function tokenGetter() {
   return localStorage.getItem(TOKEN_KEY);
@@ -31,10 +32,11 @@ export function tokenGetter() {
     HomeComponent,
     NewCompanyComponent,
     CompaniesComponent,
-    PaymentsComponent,
     MainComponent,
     CompanyRequestComponent,
     ViewCompanyDialogComponent,
+    TransactionComponent,
+    TransactionDialogComponent,
   ],
   imports: [
     BrowserModule,

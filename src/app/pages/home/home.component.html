@@ -16,10 +16,6 @@
   </div>
 
   <div style="width: 100%">
-    <div *ngIf="currentTab === 'mainTab'">
-      <app-main></app-main>
-    </div>
-
     <div *ngIf="currentTab === 'requestTab'">
       <!-- new company component -->
       <app-company-request></app-company-request>
@@ -30,7 +26,7 @@
     </div>
 
     <div *ngIf="currentTab === 'paymentsTab'">
-      <app-payments></app-payments>
+      <app-transaction></app-transaction>
     </div>
   </div>
 </div>
