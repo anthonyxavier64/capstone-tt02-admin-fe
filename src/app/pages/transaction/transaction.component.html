@@ -1,0 +1,167 @@
+<p-toast></p-toast>
+<mat-tab-group style="height: 500px">
+  <mat-tab label="Successful">
+    <label style="margin-left: 20px">Filter Company: </label>
+    <span
+      class="p-input-icon-right"
+      style="margin-top: 20px; margin-bottom: 20px"
+    >
+      <i class="pi pi-search"></i>
+      <input
+        type="text"
+        placeholder="Search Company"
+        pInputText
+        [(ngModel)]="searchPaidCompanyName"
+        (input)="handlePaidSearch($event)"
+      />
+    </span>
+
+    <label style="margin-left: 20px">Filter Year: </label>
+    <span
+      class="p-input-icon-right"
+      style="margin-top: 20px; margin-bottom: 20px"
+    >
+      <input
+        type="number"
+        style="text-align: center"
+        placeholder="2021"
+        [(ngModel)]="searchPaidYear"
+        (input)="handlePaidYearFilter($event)"
+        pInputText
+      />
+    </span>
+
+    <br />
+    <label style="margin-left: 20px">Select Month: </label>
+    <p-dropdown
+      [options]="months"
+      [(ngModel)]="selectedPaidMonth"
+      placeholder="Select a Month"
+      (onChange)="handlePaidMonthFilter($event)"
+    ></p-dropdown>
+
+    <button
+      mat-button
+      class="peach-btn"
+      style="margin-left: 20px"
+      (click)="viewPaidArchives()"
+    >
+      View Archives
+    </button>
+
+    <hr />
+    <mat-grid-list cols="1" gutterSize="5px">
+      <div *ngFor="let payment of paidCompanies">
+        <mat-card>
+          <mat-card-title>
+            {{ payment.company.name }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            Date Paid: {{ payment.date | date: "dd/MM/yyyy" }}
+          </mat-card-subtitle>
+          <mat-card-content>
+            Subscription Type: {{ payment.company.subscriptionType }}
+          </mat-card-content>
+          <mat-card-content>
+            Amount Paid: $ {{ payment.amount }}
+          </mat-card-content>
+          <mat-card-content>
+            Subscription Type: {{ payment.paymentStatus }}
+          </mat-card-content>
+          <mat-card-content *ngIf="payment.isArchived">
+            <span style="color: grey">Archived</span>
+          </mat-card-content>
+          <mat-card-content *ngIf="!payment.isArchived">
+            <button
+              mat-button
+              class="peach-btn"
+              (click)="archivePaymentRecord(payment.paymentId)"
+            >
+              Archive
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-grid-list>
+  </mat-tab>
+
+  <mat-tab label="Failed">
+    <label style="margin-left: 20px">Filter Company: </label>
+    <span
+      class="p-input-icon-right"
+      style="margin-top: 20px; margin-bottom: 20px"
+    >
+      <i class="pi pi-search"></i>
+      <input
+        type="text"
+        placeholder="Search Company"
+        pInputText
+        [(ngModel)]="searchUnpaidCompanyName"
+        (input)="handleUnpaidSearch($event)"
+      />
+    </span>
+
+    <label style="margin-left: 20px">Filter Year: </label>
+    <span
+      class="p-input-icon-right"
+      style="margin-top: 20px; margin-bottom: 20px"
+    >
+      <input
+        type="number"
+        style="text-align: center"
+        placeholder="2021"
+        [(ngModel)]="searchUnpaidYear"
+        (input)="handleUnpaidYearFilter($event)"
+        pInputText
+      />
+    </span>
+
+    <br />
+    <label style="margin-left: 20px">Select Month: </label>
+    <p-dropdown
+      [options]="months"
+      [(ngModel)]="selectedUnpaidMonth"
+      placeholder="Select a Month"
+      (onChange)="handleUnpaidMonthFilter($event)"
+    ></p-dropdown>
+
+    <button
+      mat-button
+      class="peach-btn"
+      style="margin-left: 20px"
+      (click)="viewUnpaidArchives()"
+    >
+      View Archives
+    </button>
+
+    <hr />
+
+    <mat-grid-list cols="1" gutterSize="5px">
+      <div *ngFor="let payment of unpaidCompanies">
+        <mat-card>
+          <mat-card-title>
+            {{ payment.company.name }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            Date created: {{ payment.company.createdAt }}
+          </mat-card-subtitle>
+          <mat-card-content>
+            Subscription Type: {{ payment.company.subscriptionType }}
+          </mat-card-content>
+          <mat-card-content *ngIf="payment.isArchived">
+            <span style="color: grey">Archived</span>
+          </mat-card-content>
+          <mat-card-content *ngIf="!payment.isArchived">
+            <button
+              mat-button
+              class="peach-btn"
+              (click)="archivePaymentRecord(payment.paymentId)"
+            >
+              Archive
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-grid-list>
+  </mat-tab>
+</mat-tab-group>
