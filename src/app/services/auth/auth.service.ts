@@ -61,7 +61,7 @@ export class AuthService {
 
   getUserAndTokens(email: string, password: string): Observable<any> {
     return this.httpClient
-      .post(this.baseUrl + '/login', { email, password }, httpOptions)
+      .post(this.baseUrl + '/login-admin', { email, password }, httpOptions)
       .pipe(catchError(handleError));
   }
 }
